@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation_graph"
+    app:startDestination="@id/home">
+
+    <fragment
+        android:id="@+id/home"
+        android:name="com.example.myproject.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_perksFragment"
+            app:destination="@id/perks" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/perks"
+        android:name="com.example.myproject.fragments.PerksFragment"
+        android:label="PerksFragment"
+        tools:layout="@layout/fragment_perks">
+        <action
+            android:id="@+id/action_perksFragment_to_ordersFragment"
+            app:destination="@id/orders" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/orders"
+        android:name="com.example.myproject.fragments.OrdersFragment"
+        android:label="OrdersFragment"
+        tools:layout="@layout/fragment_orders">
+        <action
+            android:id="@+id/action_ordersFragment_to_accountFragment"
+            app:destination="@id/account" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/account"
+        android:name="com.example.myproject.fragments.AccountFragment"
+        android:label="AccountFragment"
+        tools:layout="@layout/fragment_account" />
+
+
+
+</navigation>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.example.myproject.models.server_side.ServerModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/normal"
+            app:cardElevation="@dimen/small"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/image_discount"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:glide="@{data.image}"
+                        android:scaleType="fitXY" />
+
+                    <LinearLayout
+                        android:id="@+id/detail_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/normal"
+                        android:layout_marginTop="@dimen/big"
+                        android:layout_marginRight="@dimen/normal"
+                        android:layout_marginBottom="@dimen/normal"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".7"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/normal"
+                                android:text="@{data.title}"
+                                android:textSize="@dimen/text_small"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                app:layout_constraintTop_toBottomOf="@id/mainapp_bar" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/normal"
+                                android:drawablePadding="@dimen/small"
+                                android:gravity="center_vertical"
+                                android:text="@{String.valueOf(data.rate)}"
+                                android:textColor="@color/gray"
+                                android:textSize="@dimen/text_small"
+                                app:drawableStartCompat="@drawable/ic_baseline_star_24"
+                                app:drawableTint="@color/ylw"
+                                app:layout_constraintTop_toBottomOf="@id/mainapp_bar" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/normal"
+                                android:gravity="end"
+                                android:text="@{String.format(`$%s`,String.valueOf(data.price))}"
+                                android:textSize="@dimen/text_small"
+                                app:layout_constraintTop_toBottomOf="@id/mainapp_bar" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/normal"
+                                android:drawablePadding="@dimen/small"
+                                android:gravity="end"
+                                android:text="25-35 min"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_small"
+                                app:layout_constraintTop_toBottomOf="@id/mainapp_bar" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <FrameLayout
+                    android:id="@+id/discount_img"
+                    android:background="@drawable/white_circle"
+                    android:elevation="@dimen/small"
+                    android:layout_width="@dimen/extra_big"
+                    android:layout_height="@dimen/extra_big"
+                    android:layout_margin="@dimen/normal"
+                    android:padding="2dp"
+                    app:layout_anchor="@id/image_discount"
+                    app:layout_anchorGravity="start|bottom" >
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/white_circle"
+                        android:backgroundTint="@color/ylw"/>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:elevation="2dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_anchor="@id/image_discount"
+                    android:layout_marginEnd="@dimen/normal"
+                    app:layout_anchorGravity="end|bottom"
+                    android:background="@drawable/white_circle"
+                    android:padding="2dp">
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/discount_text"
+                        app:cardBackgroundColor="@color/purple_700"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/small"
+                        app:cardCornerRadius="@dimen/very_big"
+                        >
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="@dimen/small"
+                            android:layout_marginStart="@dimen/normal"
+                            android:drawablePadding="@dimen/small"
+                            android:gravity="end"
+                            android:paddingStart="@dimen/normal"
+                            android:paddingEnd="@dimen/normal"
+                            android:text="$3 off your order of $21"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            app:layout_constraintTop_toBottomOf="@id/mainapp_bar" />
+
+                    </androidx.cardview.widget.CardView>
+                </FrameLayout>
+
+
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
